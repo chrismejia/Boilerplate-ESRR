@@ -2,7 +2,7 @@
 
 ## React
 
-<!-- <details> -->
+<details>
 
 - [x] Index HTML
   - There's a nice shortcut that's (as far as I know) built-in to **VSCode**: type `html` into a blank HTML and it gives you a blank HTML5 boilerplate.
@@ -25,7 +25,11 @@
 - [ ] Liftoff!
   - Jumped back to handle Express.
 
+</details>
+
 ## Express
+
+<details>
 
 - [x] Install and choose entry point
   - Created two points:
@@ -56,7 +60,11 @@
   - Required `app` from `server.js` where it was exported
   - Added `app.listen` and changed function to an arrow callback
 
+</details>
+
 ## Testing the server
+
+<details>
 
 `ERROR in Entry module not found: Error: Can't resolve './index.js' in '/Users/ChrisMejia/Google Drive/FS/Review-Week/Boilermaker'`
 
@@ -149,7 +157,11 @@ Module not found: Error: Can't resolve 'net' in '/Users/ChrisMejia/Google Drive/
 
 - Both to be handled later
 
+</details>
+
 ## Redux
+
+<details>
 
 - [x] Install
   - Installed `redux`, `react-redux`, `redux-thunk` and `redux-logger`
@@ -164,7 +176,11 @@ Module not found: Error: Can't resolve 'net' in '/Users/ChrisMejia/Google Drive/
 
 **STATUS:** Still functioning.
 
+</details>
+
 ## CSS
+
+<details>
 
 - [x] Install
   - Installed `style-loader` and `css-loader`
@@ -177,6 +193,98 @@ Module not found: Error: Can't resolve 'net' in '/Users/ChrisMejia/Google Drive/
   - Continuity error? Doesn't reflect the current state of our index.html to this point
   - Imported `index.css` into `client.js` in /client
 
+</details>
+
 ## Interlude: Environment Variables
 
-<!-- </details> -->
+<details>
+
+- Two articles to read later
+
+</details>
+
+## Sequelize
+
+<details>
+
+- [x] Create your database
+  - `boilermaker` - best database name ever
+- [x] Installing dependencies
+  - Nothing strange here.
+- [x] Create Sequelize instance
+  - Create `models` folder in server
+  - Create database.js in folder
+  - Wrote a console.log using `chalk` to denote the opening of the db connection **IN COLOR**
+- [x] Read Database URL from environment
+  - Added database_url from env.
+- [x] Define Your Models and Establish Associations
+  - Created ModelOne and ModelTwo
+  - Exported each out
+  - Brought in via `/models/index.js`
+- [x] Sync your database
+  - Defined and destructured `db` from `/models/index.js`
+  - Synced the db and then mention that db is connected.
+  - Show us the link to the local devsite
+
+</details>
+
+## Here there be dragons! Authentication
+
+<!-- <details> -->
+
+- [x] Install
+  - Installed with no issues.
+- [x] Session Middleware
+  - Installed with no issues.
+- [x] Protect Session Secret
+  - Installed with no issues.
+- [x] Optional: Session Store
+
+  - Started giving me a **massive** error:
+
+  ```
+  /Users/ChrisMejia/Google Drive/FS/Review-Week/Boilermaker/node_modules/connect-session-sequelize/lib/connect-session-sequelize.js:51
+    this.sessionModel = options.db.import(path.join(__dirname, 'model'))
+                                         ^
+
+  TypeError: options.db.import is not a function
+  at new SequelizeStore (/Users/ChrisMejia/Google Drive/FS/Review-Week/Boilermaker/node_modules/connect-session-sequelize/lib/connect-session-sequelize.js:51:44)
+  at Object.<anonymous> (/Users/ChrisMejia/Google Drive/FS/Review-Week/Boilermaker/server/server.js:25:17)
+  at Module._compile (internal/modules/cjs/loader.js:689:30)
+  at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+  at Module.load (internal/modules/cjs/loader.js:599:32)
+  at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+  at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+  at Module.require (internal/modules/cjs/loader.js:637:17)
+  at require (internal/modules/cjs/helpers.js:20:18)
+  at Object.<anonymous> (/Users/ChrisMejia/Google Drive/FS/Review-Week/Boilermaker/main.js:5:13)
+  at Module._compile (internal/modules/cjs/loader.js:689:30)
+  at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+  at Module.load (internal/modules/cjs/loader.js:599:32)
+  at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+  ```
+
+- [x] Serialize/Deserialize User
+  - Looks to be a class method on the model; placed in **both** modelOne and modelTwo files.
+- [x] Encrypt Passwords
+  - First time we've seen a Sequelize file so far; this one is fully structured.
+  - Using the comprehensive solution as-is.
+  - New errors from modelTwo where `passport` is present; required it there.
+  - Still getting erros from the session store; app stopped running since that point.
+- [x] Login
+  - Placed in /api/routeOne.js
+  - called in User model
+  - Also called in crypto library
+  - App still broken :(
+- [x] Sign Up
+  - Also placed into /api/routeOne.js
+  - Still broken.
+- [x] Log Out
+  - Also placed into /api/routeOne.js
+  - Yep, still broken.
+- [x] Get Me
+  - Installed with no issues.
+- [x] Install
+  - Installed with no issues.
+
+</details>
